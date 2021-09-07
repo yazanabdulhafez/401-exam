@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 class Footer extends React.Component {
   render() {
     return(
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar style={{display:'flex',justifyContent: 'center'}} collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Navbar.Brand>&copy; ASAC-2021</Navbar.Brand>
       </Navbar>
     );
