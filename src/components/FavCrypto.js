@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { withAuth0 } from '@auth0/auth0-react'
-import { Button, Card, Col, Row } from 'react-bootstrap';
+import { Button, Card, Col, Form, Row } from 'react-bootstrap';
 import axios from 'axios';
 import UpdateForm from './UpdateForm';
 
@@ -81,6 +81,7 @@ updateFavCurrency= (id) => {
      }).catch(error=>console.log(error));
     
      });
+    
      };
 
  ////////////// Close Update Form  //////////////
@@ -102,7 +103,7 @@ updateFavCurrency= (id) => {
         setImage_url={this.setImage_url}
         handleClose={this.handleClose}
         updateData={this.updateData}
-
+        handleReset={this.handleReset}
        />}
         <Row>
         {this.state.favData.map((element, index) => {

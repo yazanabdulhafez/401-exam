@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Form , Button, Modal} from 'react-bootstrap';
+import { Form , Button, Modal, Container} from 'react-bootstrap';
 
 export class updateForm extends Component {
+ 
   render() {
     return (
       <>
@@ -10,7 +11,7 @@ export class updateForm extends Component {
           <Modal.Title>Updating my fav currency</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={(e) => this.props.updateData(e)}>
+          <Form ref={form => this.form = form} onSubmit={(e) => this.props.updateData(e)}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Title</Form.Label>
               <Form.Control type="text" onChange={(e) => this.props.setTitle (e)} />
@@ -27,9 +28,12 @@ export class updateForm extends Component {
               <Form.Label>image_url</Form.Label>
               <Form.Control type="text" onChange={(e) => this.props.setImage_url(e)} />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Container style={{display: 'flex',justifyContent:'space-between'}}>
+            <Button   variant="primary" type="submit">
               Submit
             </Button>
+            <Button type="reset">Reset</Button>
+            </Container>
           </Form>
         </Modal.Body>
         <Modal.Footer>
