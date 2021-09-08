@@ -23,7 +23,7 @@ class FavCrypto extends React.Component {
   }
 
   componentDidMount=()=>{
-axios.get(`${process.env.REACT_APP_BACKEND_URL}currency?email=fso361435@gmail.com`)
+axios.get(`${process.env.REACT_APP_BACKEND_URL}currency?email=${this.props.auth0.user.email}`)
 .then(response=>{
   console.log(response.data.currencies);
   this.setState({
@@ -35,8 +35,8 @@ axios.get(`${process.env.REACT_APP_BACKEND_URL}currency?email=fso361435@gmail.co
 
 ///////////////////////////////////////////
 deleteFavCurrency=(id)=>{
-axios.delete(`${process.env.REACT_APP_BACKEND_URL}currency/${id}?email=fso361435@gmail.com`)
-.then(()=>{axios.get(`${process.env.REACT_APP_BACKEND_URL}currency?email=fso361435@gmail.com`)
+axios.delete(`${process.env.REACT_APP_BACKEND_URL}currency/${id}?email=${this.props.auth0.user.email}`)
+.then(()=>{axios.get(`${process.env.REACT_APP_BACKEND_URL}currency?email=${this.props.auth0.user.email}`)
 .then(response=>{
   console.log(response.data.currencies);
   this.setState({
@@ -72,7 +72,7 @@ updateFavCurrency= (id) => {
         image_url:this.state.image_url
       }
      )
-     .then( ()=>{axios.get(`${process.env.REACT_APP_BACKEND_URL}currency?email=fso361435@gmail.com`)
+     .then( ()=>{axios.get(`${process.env.REACT_APP_BACKEND_URL}currency?email=${this.props.auth0.user.email}`)
      .then(response=>{
        console.log(response.data.currencies);
        this.setState({

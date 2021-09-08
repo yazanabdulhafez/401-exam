@@ -12,7 +12,7 @@ class Home extends React.Component {
     }
   }
   componentDidMount = () => {
-    const apiUrl = `https://backend-test-401.herokuapp.com/cryptocurrency`;
+    const apiUrl = `${process.env.REACT_APP_BACKEND_URL}cryptocurrency`;
     axios.get(apiUrl).then(response => {
       console.log(response.data)
       this.setState({
@@ -29,7 +29,7 @@ class Home extends React.Component {
       description:element.description,
       image_url:element.image_url
     }
-    axios.post("https://backend-test-401.herokuapp.com/currency/",dataBody)
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}currency/`,dataBody)
     .then(response=>console.log(response.data)).catch(error=>console.log(error));
   }
 
@@ -61,8 +61,3 @@ class Home extends React.Component {
 }
 
 export default Home;
-
-// title:'',
-// toUSD:'',
-// description:'',
-// image_url:'',

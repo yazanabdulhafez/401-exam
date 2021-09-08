@@ -27,7 +27,7 @@ class App extends React.Component {
               </Route>
               <Route exact path="/favCrypto">
                 {/* TODO: if the user is logged in, render the `FavFlowers` component, if they are not, render the `Login` component */}
-              {isAuthenticated&&<FavCrypto />}
+              {isAuthenticated&&<FavCrypto auth0={this.props.auth0} />}
               </Route>
             </Switch>
             <Footer />
